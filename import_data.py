@@ -16,15 +16,15 @@ movie_response_group = ['Bad', 'Average', 'Good']
 
 mydata['movie_response'] = pd.cut(mydata['imdb_score'], bins_response, labels = movie_response_group)
 
-#finding the missing values
+#keeping only USA
+mydata = mydata[mydata['country']== 'USA']
+#get rid of NaN in year
+mydata = mydata.dropna(subset = ['title_year'])
 
-#create a new function
+#finding the missing values - after removing missing values, we can check if the count of missing values changed
 
 def num_missing(x):
     return sum(x.isnull())
 
 print "Missing values per column:"
 print mydata.apply(num_missing, axis = 0)
-
-
-#print mydata.tail(10)
