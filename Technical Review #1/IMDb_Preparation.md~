@@ -14,16 +14,16 @@ Currently with the data set, there are a number of missing values. Some columns 
 1. Cleaning Raw Data: Methods of cleaning/filtering the data set? What should we do with the missing values?
   1. Currently 16 out of 28 columns have missing values. Some have up to 500 missing values whilte the ohters have a few
   2. Current Considerations:
-    *Maunally looking up and filling in missing values ourselves
-    *Replacing the missing values with the average for that column
-        -Averaging values means skewing data, especially if the range is large
-    *Deleting those data points entirely
+  * Maunally looking up and filling in missing values ourselves
+  * Replacing the missing values with the average for that column
+    - Averaging values means skewing data, especially if the range is large
+  * Deleting those data points entirely
         -Deleting missing values means a lot less data
-    *For the variables with wider range, we can standardize or perform a transformation to take different scales into account
+  * For the variables with wider range, we can standardize or perform a transformation to take different scales into account
 
 2. How should we deal with the data points in the ‘Genre’ variable for movies that have multiple genres? 
-  2. Complication
-    *There are multiple genres associated with one movie
-    *Example: if we filter by 'Actions,' there are only 15 movies
+  2. Complications:
+  * There are multiple genres associated with one movie
+  * Example: if we filter by 'Actions,' there are only 15 movies
   3. Current Considerations: 
-    *Randomly 
+  * Randomly 
