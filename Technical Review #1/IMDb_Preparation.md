@@ -26,4 +26,13 @@ Currently with the data set, there are a number of missing values. Some columns 
     - There are multiple genres associated with one movie
     - Example: if we filter by 'Actions,' there are only 15 movies
   3. Current Considerations: 
-    - Randomly 
+    - Randomly pick one of the genres listed
+    - Pick the first one in the row listed
+    - Create dummy variables
+
+3. What other statistical models do you suggest using?
+  1. Current Considerations:
+    1. Multiple Linear Regression (Response: Continuous)
+    2. Logistic Regression (Response: Categorical)
+    3. Classification Tree (Response: Categorical)
+  2. For Logistic Regression and Classification Tree, we will bin the IMDb scores into three categories: Bad, Average, Good

@@ -16,9 +16,9 @@ Currently with the data set, there are a number of missing values. Some columns 
   2. Current Considerations:
     - Maunally looking up and filling in missing values ourselves
     - Replacing the missing values with the average for that column
-      - Averaging values means skewing data, especially if the range is large
+      * Averaging values means skewing data, especially if the range is large
     - Deleting those data points entirely
-      -Deleting missing values means a lot less data
+      * Deleting missing values means a lot less data
     - For the variables with wider range, we can standardize or perform a transformation to take different scales into account
 
 2. How should we deal with the data points in the ‘Genre’ variable for movies that have multiple genres? 
