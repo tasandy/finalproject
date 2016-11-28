@@ -95,7 +95,7 @@ mydata = mydata.dropna(subset=["actor_1_facebook_likes","actor_2_facebook_likes"
 
 mydata = mydata .dropna(subset = ["duration", "num_critic_for_reviews", "facenumber_in_poster", "num_user_for_reviews", "budget"])
 
-#print "Missing values per column:"
-#print mydata.apply(num_missing, axis = 0)
+print "Missing values per column:"
+print mydata.apply(num_missing, axis = 0)
 
-mydata.to_csv("rough_cleandata.csv")
+#mydata.to_csv("rough_cleandata.csv")
