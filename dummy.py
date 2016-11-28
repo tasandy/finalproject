@@ -41,6 +41,8 @@ mydata.drop(['actor_1_name'], axis = 1, inplace = True)
 mydata.drop(['actor_2_name'], axis = 1, inplace = True)
 mydata.drop(['actor_3_name'], axis = 1, inplace = True)
 mydata.drop(['gross'], axis = 1, inplace = True)
+mydata.drop(['country'], axis = 1, inplace = True)
+mydata.drop(['movie_title'], axis = 1, inplace = True)
 
 #managing categorical variables
 
@@ -96,5 +98,4 @@ mydata = mydata .dropna(subset = ["duration", "num_critic_for_reviews", "facenum
 #print "Missing values per column:"
 #print mydata.apply(num_missing, axis = 0)
 
-print mydata
-#mydata.to_csv("rough_cleandata.csv")
+mydata.to_csv("rough_cleandata.csv")
