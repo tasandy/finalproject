@@ -36,6 +36,11 @@ mydata = merged_data
 #drop unnecessary columns
 mydata.drop(['aspect_ratio'], axis = 1, inplace = True)
 mydata.drop(['plot_keywords'], axis = 1, inplace = True)
+mydata.drop(['director_name'], axis = 1, inplace = True)
+mydata.drop(['actor_1_name'], axis = 1, inplace = True)
+mydata.drop(['actor_2_name'], axis = 1, inplace = True)
+mydata.drop(['actor_3_name'], axis = 1, inplace = True)
+mydata.drop(['gross'], axis = 1, inplace = True)
 
 #managing categorical variables
 
@@ -76,5 +81,20 @@ mydata.loc[mydata["content_rating"] == "NC-17", "content_rating"] = 5
 def num_missing(x):
     return sum(x.isnull())
 
-print "Missing values per column:"
-print mydata.apply(num_missing, axis = 0)
+#print "Missing values per column:"
+#print mydata.apply(num_missing, axis = 0)
+
+
+#droppping Actors
+
+mydata = mydata.dropna(subset=["actor_1_facebook_likes","actor_2_facebook_likes","actor_3_facebook_likes"])
+
+#dropping columns with missing values for NOWWWWW
+
+mydata = mydata .dropna(subset = ["duration", "num_critic_for_reviews", "facenumber_in_poster", "num_user_for_reviews", "budget"])
+
+#print "Missing values per column:"
+#print mydata.apply(num_missing, axis = 0)
+
+print mydata
+#mydata.to_csv("rough_cleandata.csv")
