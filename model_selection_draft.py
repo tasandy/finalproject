@@ -9,7 +9,8 @@ from sklearn import metrics
 mydata=pd.read_csv('rough_cleandata.csv')
 
 #prepare dataset for logistic regression
-predictor_list = ['num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_1_facebook_likes', 'num_voted_users', 'cast_total_facebook_likes', 'facenumber_in_poster', 'num_user_for_reviews', 'language', 'content_rating', 'budget', 'actor_2_facebook_likes']
+predictor_list = ['title_year','num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_1_facebook_likes', 'num_voted_users', 'cast_total_facebook_likes', 'facenumber_in_poster', 'num_user_for_reviews', 'content_rating', 'budget', 'actor_2_facebook_likes',
+'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News', 'Romance', 'Sci-Fi', 'Short','Sport', 'Thriller','War', 'Western' ]
 movie_features = mydata[predictor_list]
 
 #converting string categorical to integer categories...
