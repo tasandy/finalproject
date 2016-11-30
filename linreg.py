@@ -1,11 +1,11 @@
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+from sklearn.cross_validation import train_test_split
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
-from sklearn.cluster import KMeans
-
-
-
-mydata=pd.read_csv('movie_metadata.csv')
+mydata=pd.read_csv('movie_metadata.csv', index_col = 0)
 
 #sort by years
 
@@ -13,10 +13,10 @@ mydata.sort_values(by='title_year')
 
 #binning response variable - imdb
 
-bins_response = [0, 5, 7, 10]
-movie_response_group = ['Bad', 'Average', 'Good']
+#bins_response = [0, 5, 7, 10]
+#movie_response_group = ['Bad', 'Average', 'Good']
 
-mydata['movie_response'] = pd.cut(mydata['imdb_score'], bins_response, labels = movie_response_group)
+#mydata['movie_response'] = pd.cut(mydata['imdb_score'], bins_response, labels = movie_response_group)
 
 #keeping only USA
 mydata = mydata[mydata['country']== 'USA']
@@ -35,6 +35,7 @@ mydata = merged_data
 
 #drop unnecessary columns
 mydata.drop(['aspect_ratio'], axis = 1, inplace = True)
+mydata.drop(['movie_imdb_link'], axis = 1, inplace = True)
 mydata.drop(['plot_keywords'], axis = 1, inplace = True)
 mydata.drop(['director_name'], axis = 1, inplace = True)
 mydata.drop(['actor_1_name'], axis = 1, inplace = True)
@@ -43,6 +44,7 @@ mydata.drop(['actor_3_name'], axis = 1, inplace = True)
 mydata.drop(['gross'], axis = 1, inplace = True)
 mydata.drop(['country'], axis = 1, inplace = True)
 mydata.drop(['movie_title'], axis = 1, inplace = True)
+mydata.drop(['movie_facebook_likes'], axis = 1, inplace = True)
 
 #managing categorical variables
 
@@ -94,8 +96,18 @@ mydata = mydata.dropna(subset=["actor_1_facebook_likes","actor_2_facebook_likes"
 #dropping columns with missing values for NOWWWWW
 
 mydata = mydata .dropna(subset = ["duration", "num_critic_for_reviews", "facenumber_in_poster", "num_user_for_reviews", "budget"])
+predictors = ['color', 'num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_1_facebook_likes', 'num_voted_users', 'cast_total_facebook_likes', 'facenumber_in_poster', 'num_user_for_reviews', 'language', 'content_rating', 'budget', 'actor_2_facebook_likes']
+X = mydata[predictors]
+y = mydata['imdb_score']
 
-print "Missing values per column:"
-print mydata.apply(num_missing, axis = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 1)
+linreg = LinearRegression()
+linreg.fit(X_train, y_train)
+print(linreg.intercept_)
+print list(zip(predictors, linreg.coef_))
 
-#mydata.to_csv("rough_cleandata.csv")
+y_pred = linreg.predict(X_test)
+#MSE
+print(metrics.mean_squared_error(y_test, y_pred))
+
+mydata.to_csv("rough_cleandata.csv")
