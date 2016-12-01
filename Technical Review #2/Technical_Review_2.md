@@ -25,7 +25,7 @@ To reiterate/as a reminder, our project is to create a program that will take us
   1. Refresher
   2. Progress
 2. Software (website) Ideation (8 minutes)
-3. Key questions 1&2 (4 minutes each)
+3. Key questions 2&3 (4 minutes each)
 
 **Strategy**: To communicate with our audience, we will have a ideation session for our software development for 8 minutes and two key questions will come after.
 
