@@ -2,7 +2,7 @@ import pandas as pd
 
 def get_clean_data(file_name):
 
-    moviedata=pd.read_csv('file_name')
+    moviedata=pd.read_csv(file_name)
 
     #sort by years and drop observations before year 2000
 

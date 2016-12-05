@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from clean_data import get_clean_data
 
 app = Flask(__name__)
 
@@ -6,7 +7,7 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
-@app.route('/submission', methods=['POST', 'GET'])
+@app.route('/submission', methods=['POST'])
 def login():
     error = None
     if request.method == 'POST':

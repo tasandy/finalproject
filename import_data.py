@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -25,6 +26,7 @@ mydata = mydata.dropna(subset = ['title_year'])
 
 def num_missing(x):
     return sum(x.isnull())
+
 
 print "Missing values per column:"
 print mydata.apply(num_missing, axis = 0)
