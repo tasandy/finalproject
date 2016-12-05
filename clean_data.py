@@ -15,6 +15,10 @@ def get_clean_data(file_name):
     movie_response_group = ['Bad', 'Average', 'Good']
 
     moviedata['movie_response'] = pd.cut(moviedata['imdb_score'], bins_response, labels = movie_response_group)
+    #converting response variable from string categories to numeric categories
+    moviedata.loc[moviedata["movie_response"]=="Bad", "movie_response"] = 0
+    moviedata.loc[moviedata["movie_response"]=="Average", "movie_response"] = 1
+    moviedata.loc[moviedata["movie_response"]=="Good", "movie_response"] = 2
 
     #keeping only USA
     moviedata = moviedata[moviedata['country']== 'USA']
