@@ -3,6 +3,7 @@ from sklearn.cross_validation import train_test_split
 import pandas as pd
 import numpy as np
 
+#must run code to clean the dataset first upon using the linear regression
 mydata=pd.read_csv('rough_cleandata.csv', index_col = 0)
 
 #creating variables
