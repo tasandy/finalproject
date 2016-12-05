@@ -1,33 +1,35 @@
-import numpy as np
-import pandas as pd
+from flask import Flask, render_template, request
+from clean_data import get_clean_data
+from final_model import predict_movie_rating
 
-from sklearn.linear_model import LogisticRegression
+app = Flask(__name__)
 
-def predict_movie_rating(list_of_user_input):
+file_n = 'movie_metadata.csv'
+get_clean_data(file_n)
 
-    #storing the resopnse variable in 'response' for easier code writing
-    response = moviedata['movie_response']
 
-    #create a list of predictors to include in classification model
-    predictor_list = ['title_year', 'director_facebook_likes', 'actor_1_facebook_likes', 'actor_2_facebook_likes', 'actor_3_facebook_likes', 'facenumber_in_poster', 'content_rating', 'budget',
-    'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
-    'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller','War', 'Western' ]
-    movie_features = moviedata[predictor_list]
+@app.route('/')
+def hello_world():
+    return render_template('index.html')
 
-    #transform X from pandas dataframe to numpy arrays
-    X = movie_features.as_matrix()
-    #transform y from pandas to 1D list
-    y = list(moviedata['movie_response'].values)
+user_iputs = [2010,111,111,112,435,2,4,500000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]
+@app.route('/submission', methods=['POST'])
+def inputs():
+    error = None
+    if request.method == 'POST':
+        name = request.form['name']
+        print name
+    else:
+        error = 'Error: Please fill out all fields'
 
-    #--------------- CARRY OUT CLASSIFICATION MODELS ---------------
+    user_inputs.append(name)
+    apply_model()
 
-    #call in the models
-    logreg = LogisticRegression()
+    return render_template('index.html')
 
-    # fit the model with our dataset
-    logreg.fit(X, y)
+def apply_model():
+    predict_movie_rating(user_inputs)
+    user_inputs = []
 
-    #make predictions on the testing set
-    log_y_pred = logreg.predict(list_of_user_input)
-
-    print log_y_pred
+if __name__ == '__main__':
+    app.run()
