@@ -33,17 +33,6 @@ def get_clean_data(file_name):
 
     moviedata = merged_data
 
-    #drop unnecessary columns
-    moviedata.drop(['aspect_ratio'], axis = 1, inplace = True)
-    moviedata.drop(['plot_keywords'], axis = 1, inplace = True)
-    moviedata.drop(['director_name'], axis = 1, inplace = True)
-    moviedata.drop(['actor_1_name'], axis = 1, inplace = True)
-    moviedata.drop(['actor_2_name'], axis = 1, inplace = True)
-    moviedata.drop(['actor_3_name'], axis = 1, inplace = True)
-    moviedata.drop(['gross'], axis = 1, inplace = True)
-    moviedata.drop(['country'], axis = 1, inplace = True)
-    moviedata.drop(['movie_title'], axis = 1, inplace = True)
-
     #managing categorical variables
 
     # COLOR - 1 if color, 0 if black and white
@@ -55,7 +44,6 @@ def get_clean_data(file_name):
     moviedata["language"] = moviedata["language"].fillna("English")
     moviedata.loc[moviedata["language"] != "English", "language"] = 1
     moviedata.loc[moviedata["language"] == "English", "language"] = 0
-
 
     #content rating...putting into 6 different categories...
     #Unrated,G, PG, PG-13, R, NC-17 -> 0,1,2,3,4,5
