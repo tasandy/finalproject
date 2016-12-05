@@ -107,7 +107,7 @@ print(linreg.intercept_)
 print list(zip(predictors, linreg.coef_))
 
 y_pred = linreg.predict(X_test)
-#MSE
-print(metrics.mean_squared_error(y_test, y_pred))
 
-mydata.to_csv("rough_cleandata.csv")
+#MSE
+print 'The MSE is'
+print(metrics.mean_squared_error(y_test, y_pred))
