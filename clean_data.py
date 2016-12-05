@@ -12,13 +12,9 @@ def get_clean_data(file_name):
     #binning response variable into categorical variable - imdb movie score
 
     bins_response = [0, 5, 7, 10]
-    movie_response_group = ['Bad', 'Average', 'Good']
+    movie_response_group = [0, 1, 2]
 
     moviedata['movie_response'] = pd.cut(moviedata['imdb_score'], bins_response, labels = movie_response_group)
-    #converting response variable from string categories to numeric categories
-    moviedata.loc[moviedata["movie_response"]=="Bad", "movie_response"] = 0
-    moviedata.loc[moviedata["movie_response"]=="Average", "movie_response"] = 1
-    moviedata.loc[moviedata["movie_response"]=="Good", "movie_response"] = 2
 
     #keeping only USA
     moviedata = moviedata[moviedata['country']== 'USA']
@@ -71,4 +67,7 @@ def get_clean_data(file_name):
     moviedata = moviedata.dropna(subset=["actor_1_facebook_likes","actor_2_facebook_likes","actor_3_facebook_likes"])
     moviedata = moviedata.dropna(subset = ["duration", "num_critic_for_reviews", "facenumber_in_poster", "num_user_for_reviews", "budget"])
 
-    return moviedata
+    print moviedata
+
+file_n = 'movie_metadata.csv'
+get_clean_data(file_n)
