@@ -86,10 +86,10 @@ mydata = mydata .dropna(subset = ["duration", "num_critic_for_reviews", "facenum
 
 mydata.to_csv("rough_cleandata.csv")
 
-data = pd.read_csv('rough_cleandata.csv', index_col = 0)
-predictor_list = ['title_year','num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_1_facebook_likes', 'num_voted_users', 'cast_total_facebook_likes', 'facenumber_in_poster', 'num_user_for_reviews', 'content_rating', 'budget', 'actor_2_facebook_likes',
+mydata = pd.read_csv('rough_cleandata.csv', index_col = 0)
+mypredictor_list = ['title_year', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_1_facebook_likes', 'facenumber_in_poster', 'content_rating', 'budget', 'actor_2_facebook_likes',
 'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News', 'Romance', 'Sci-Fi', 'Short','Sport', 'Thriller','War', 'Western' ]
-X = data[predictor_list]
+X = data[predictor_list] ###EDIT HERE###
 y = data['imdb_score']
 
 #Plotting data
