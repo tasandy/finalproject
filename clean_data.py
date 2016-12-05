@@ -67,7 +67,4 @@ def get_clean_data(file_name):
     moviedata = moviedata.dropna(subset=["actor_1_facebook_likes","actor_2_facebook_likes","actor_3_facebook_likes"])
     moviedata = moviedata.dropna(subset = ["duration", "num_critic_for_reviews", "facenumber_in_poster", "num_user_for_reviews", "budget"])
 
-    print moviedata
-
-file_n = 'movie_metadata.csv'
-get_clean_data(file_n)
+    return moviedata
