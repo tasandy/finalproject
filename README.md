@@ -15,6 +15,7 @@ pandas
 scikit-learn
 
 To install all these packages, run this line of code in your terminal:
+
 sudo apt-get install matplotlib, numpy, pandas, scikit-learn
 
 ### ***Usage***
