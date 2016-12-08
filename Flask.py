@@ -3,6 +3,9 @@ from clean_data import get_clean_data
 
 app = Flask(__name__)
 
+file_name = 'movie_metadata.csv'
+get_clean_data(file_name)
+
 @app.route('/')
 def hello_world():
     return render_template('index.html')
