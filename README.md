@@ -10,8 +10,11 @@ The developers of this software are Wayne Kwon, Jason Lee, Alyssa Wu, and Sandy 
 
 ### ***Getting Started***
 In order to use this software, you will need to following Python packages:
+
 numpy
+
 pandas
+
 scikit-learn
 
 To install all these packages, run this line of code in your terminal:
