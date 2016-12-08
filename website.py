@@ -1,35 +1,42 @@
 from flask import Flask, render_template, request
 from clean_data import get_clean_data
 from final_model import predict_movie_rating
+import pandas
 
 app = Flask(__name__)
 
+#importing rawdata and cleaning it so that it can be used in the model
 file_n = 'movie_metadata.csv'
-get_clean_data(file_n)
-
+moviedata=get_clean_data(file_n)
 
 @app.route('/')
 def hello_world():
     return render_template('index.html')
 
-user_iputs = [2010,111,111,112,435,2,4,500000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]
 @app.route('/submission', methods=['POST'])
-def inputs():
+def login():
     error = None
     if request.method == 'POST':
-        name = request.form['name']
-        print name
+        user_input = []
+        list_of_predictors = ['title_year', 'director_facebook_likes', 'actor_1_facebook_likes', 'actor_2_facebook_likes', 'actor_3_facebook_likes', 'facenumber_in_poster', 'content_rating', 'budget',
+        'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
+        'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller','War', 'Western' ]
+        for predictor in list_of_predictors:
+            value = request.form[predictor]
+            value_float = int(value)
+            user_input.append(value_float)
+
+        print user_input
+        movie_rating_index=predict_movie_rating(user_input, moviedata)
+        dic = {0:"not recommended", 1:"hmm..I'd consider it", 2:"go watch it"}
+        movie_rating = [dic[n] if n in dic.keys() else n for n in movie_rating_index]
+        print movie_rating
     else:
         error = 'Error: Please fill out all fields'
 
-    user_inputs.append(name)
-    apply_model()
-
     return render_template('index.html')
 
-def apply_model():
-    predict_movie_rating(user_inputs)
-    user_inputs = []
+#def apply_model():
 
 if __name__ == '__main__':
     app.run()
