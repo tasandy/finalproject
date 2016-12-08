@@ -32,13 +32,13 @@ def login():
 
         print user_input
         movie_rating_index=predict_movie_rating(user_input, moviedata)
-        dic = {0:"not recommended", 1:"hmm..I'd consider it", 2:"go watch it"}
+        dic = {0:"Not Recommended", 1:"Hmm..I'd consider it", 2:"Go Watch It!"}
         movie_rating = [dic[n] if n in dic.keys() else n for n in movie_rating_index]
-        return redirect(url_for('rating', movie = movie_rating))
+        result = movie_rating[0]
+        return redirect(url_for('rating', movie = result))
     else:
         error = 'Error: Please fill out all fields'
     return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
-
