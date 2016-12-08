@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, redirect, url_for, request
 from clean_data import get_clean_data
 from final_model import predict_movie_rating
 import pandas
@@ -12,6 +12,10 @@ moviedata=get_clean_data(file_n)
 @app.route('/')
 def hello_world():
     return render_template('index.html')
+
+@app.route('/rating/<movie>')
+def rating(movie):
+    return '%s' % movie
 
 @app.route('/submission', methods=['POST'])
 def login():
@@ -30,13 +34,11 @@ def login():
         movie_rating_index=predict_movie_rating(user_input, moviedata)
         dic = {0:"not recommended", 1:"hmm..I'd consider it", 2:"go watch it"}
         movie_rating = [dic[n] if n in dic.keys() else n for n in movie_rating_index]
-        print movie_rating
+        return redirect(url_for('rating', movie = movie_rating))
     else:
         error = 'Error: Please fill out all fields'
-
     return render_template('index.html')
-
-#def apply_model():
 
 if __name__ == '__main__':
     app.run()
+
