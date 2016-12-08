@@ -10,7 +10,7 @@ def predict_movie_rating(list_of_user_input):
 
     #create a list of predictors to include in classification model
     predictor_list = ['title_year', 'director_facebook_likes', 'actor_1_facebook_likes', 'actor_2_facebook_likes', 'actor_3_facebook_likes', 'facenumber_in_poster', 'content_rating', 'budget',
-    'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
+    'Action','Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
     'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller','War', 'Western' ]
     movie_features = moviedata[predictor_list]
 

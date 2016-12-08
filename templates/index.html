@@ -7,14 +7,56 @@
    </head>
 <body>
    <h1></h1>
-   <p>Input the actor name.</p>
+   <p>Input the following information.</p>
    <form action="/submission" method="post">
-      Name: <br>
-      <input type="text" name="name"><br>
-      Facebook Likes: <br>
-      <input type="text" Facebook LIkes="Likes"><br>
+      Movie Release Year: <br>
+      <input type="text" name="title_year"><br>
+      Director Facebook Likes: <br>
+      <input type="text" name="director_facebook_likes"><br>
+      Actor 1 Facebook Likes: <br>
+      <input type="text" name="actor_1_facebook_likes"><br>
+      Actor 2 Facebook Likes: <br>
+      <input type="text" name="actor_2_facebook_likes"><br>
+      Actor 3 Facebook Likes: <br>
+      <input type="text" name="actor_3_facebook_likes"><br>
+      Number of Faces on Movie Poster: <br>
+      <input type="text" name="facenumber_in_poster"><br>
+      Content Rating: <br>
+      <select>
+        <option value = "Unrated">Unrated</option>
+        <option value = "G">G</option>
+        <option value = "PG">PG</option>
+        <option value = "PG-13">PG-13</option>
+        <option value = "R">R</option>
+        <option value = "NC-17">NC-17</option>
+      </select> <br>
+      Budget: <br>
+      <input type="text" name="Budget"><br>
       Genre: <br>
-      <input type="text" Genre="Genre"><br>
+      <form action = "">
+         <input type="checkbox" name = 'genre' value = 'action'>Action<br>
+         <input type="checkbox" name = 'genre' value = 'adventure'>Adventure<br>
+         <input type="checkbox" name = 'genre' value = 'animation'>Animation<br>
+         <input type="checkbox" name = 'genre' value = 'biography'>Biography<br>
+         <input type="checkbox" name = 'genre' value = 'comedy'>Comedy<br>
+         <input type="checkbox" name = 'genre' value = 'crime'>Crime<br>
+         <input type="checkbox" name = 'genre' value = 'documentary'>Documentary<br>
+         <input type="checkbox" name = 'genre' value = 'drama'>Drama<br>
+         <input type="checkbox" name = 'genre' value = 'family'>Family<br>
+         <input type="checkbox" name = 'genre' value = 'fantasy'>Fantasy<br>
+         <input type="checkbox" name = 'genre' value = 'history'>History<br>
+         <input type="checkbox" name = 'genre' value = 'horror'>Horror<br>
+         <input type="checkbox" name = 'genre' value = 'music'>Music<br>
+         <input type="checkbox" name = 'genre' value = 'musical'>Musical<br>
+         <input type="checkbox" name = 'genre' value = 'mystery'>Mystery<br>
+         <input type="checkbox" name = 'genre' value = 'news'>News<br>
+         <input type="checkbox" name = 'genre' value = 'romance'>Romance<br>
+         <input type="checkbox" name = 'genre' value = 'sci-fi'>Sci-Fi<br>
+         <input type="checkbox" name = 'genre' value = 'short'>Short<br>
+         <input type="checkbox" name = 'genre' value = 'thriller'>Thriller<br>
+         <input type="checkbox" name = 'genre' value = 'war'>War<br>
+         <input type="checkbox" name = 'genre' value = 'western'>Western
+      </form>
       <input type="submit" value="Submit">
    </form>
 
