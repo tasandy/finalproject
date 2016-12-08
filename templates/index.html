@@ -7,56 +7,79 @@
    </head>
 <body>
    <h1></h1>
-   <p>Input the following information.</p>
-   <form action="/submission" method="post">
-      Movie Release Year: <br>
+   <p>Input the following information (Only numbers).</p>
+   <p>Must fill in all the blanks to get the result</p>
+   <form action="submission" method="post">
+      <a title="Type in the year the movie was released">Movie Release Year:</a><br>
       <input type="text" name="title_year"><br>
-      Director Facebook Likes: <br>
+      <a title="Type in the number of facebook likes on the director's facebook page">Director Facebook Likes:</a><br>
       <input type="text" name="director_facebook_likes"><br>
-      Actor 1 Facebook Likes: <br>
+      <a title="Type in the number of facebook likes on the 1st actor's facebook page">Actor 1 Facebook Likes:</a><br>
       <input type="text" name="actor_1_facebook_likes"><br>
-      Actor 2 Facebook Likes: <br>
+      <a title="Type in the number of facebook likes on the 2nd actor's facebook page">Actor 2 Facebook Likes:</a><br>
       <input type="text" name="actor_2_facebook_likes"><br>
-      Actor 3 Facebook Likes: <br>
+      <a title="Type in the number of facebook likes on the 3rd actor's facebook page">Actor 3 Facebook Likes:</a><br>
       <input type="text" name="actor_3_facebook_likes"><br>
-      Number of Faces on Movie Poster: <br>
+      <a title="Type in number of faces you see on movie poster">Number of Faces on Movie Poster:</a><br>
       <input type="text" name="facenumber_in_poster"><br>
       Content Rating: <br>
-      <select>
-        <option value = "Unrated">Unrated</option>
-        <option value = "G">G</option>
-        <option value = "PG">PG</option>
-        <option value = "PG-13">PG-13</option>
-        <option value = "R">R</option>
-        <option value = "NC-17">NC-17</option>
+      <select name="content_rating">
+        <option value = "0">Unrated</option>
+        <option value = "1">G</option>
+        <option value = "2">PG</option>
+        <option value = "3">PG-13</option>
+        <option value = "4">R</option>
+        <option value = "5">NC-17</option>
       </select> <br>
-      Budget: <br>
-      <input type="text" name="Budget"><br>
-      Genre: <br>
-      <form action = "">
-         <input type="checkbox" name = 'genre' value = 'action'>Action<br>
-         <input type="checkbox" name = 'genre' value = 'adventure'>Adventure<br>
-         <input type="checkbox" name = 'genre' value = 'animation'>Animation<br>
-         <input type="checkbox" name = 'genre' value = 'biography'>Biography<br>
-         <input type="checkbox" name = 'genre' value = 'comedy'>Comedy<br>
-         <input type="checkbox" name = 'genre' value = 'crime'>Crime<br>
-         <input type="checkbox" name = 'genre' value = 'documentary'>Documentary<br>
-         <input type="checkbox" name = 'genre' value = 'drama'>Drama<br>
-         <input type="checkbox" name = 'genre' value = 'family'>Family<br>
-         <input type="checkbox" name = 'genre' value = 'fantasy'>Fantasy<br>
-         <input type="checkbox" name = 'genre' value = 'history'>History<br>
-         <input type="checkbox" name = 'genre' value = 'horror'>Horror<br>
-         <input type="checkbox" name = 'genre' value = 'music'>Music<br>
-         <input type="checkbox" name = 'genre' value = 'musical'>Musical<br>
-         <input type="checkbox" name = 'genre' value = 'mystery'>Mystery<br>
-         <input type="checkbox" name = 'genre' value = 'news'>News<br>
-         <input type="checkbox" name = 'genre' value = 'romance'>Romance<br>
-         <input type="checkbox" name = 'genre' value = 'sci-fi'>Sci-Fi<br>
-         <input type="checkbox" name = 'genre' value = 'short'>Short<br>
-         <input type="checkbox" name = 'genre' value = 'thriller'>Thriller<br>
-         <input type="checkbox" name = 'genre' value = 'war'>War<br>
-         <input type="checkbox" name = 'genre' value = 'western'>Western
-      </form>
+      <a title="Type in the budget, without a dollar sign">Budget:</a><br>
+      <input type="text" name="budget"><br>
+      Genre (Select all that apply): <br>
+      <input type="checkbox" name = "Action" value = "1"/>Action<br>
+      <input type="hidden" name='Action' value = "0"/>
+      <input type="checkbox" name ='Adventure' value = "1">Adventure<br>
+      <input type="hidden" name="Adventure" value = "0">
+      <input type="checkbox" name = 'Animation' value = "1">Animation<br>
+      <input type="hidden" name="Animation" value = "0">
+      <input type="checkbox" name = 'Biography' value = "1">Biography<br>
+      <input type="hidden" name="Biography" value = "0">
+      <input type="checkbox" name = 'Comedy' value = "1">Comedy<br>
+      <input type="hidden" name="Comedy" value = "0">
+      <input type="checkbox" name = 'Crime' value = "1">Crime<br>
+      <input type="hidden" name="Crime" value = "0">
+      <input type="checkbox" name = 'Documentary' value = '1'>Documentary<br>
+      <input type="hidden" name="Documentary" value = "0">
+      <input type="checkbox" name = 'Drama' value = '1'>Drama<br>
+      <input type="hidden" name="Drama" value = "0">
+      <input type="checkbox" name = 'Family' value = '1'>Family<br>
+      <input type="hidden" name="Family" value = "0">
+      <input type="checkbox" name = 'Fantasy' value = '1'>Fantasy<br>
+      <input type="hidden" name="Fantasy" value = "0">
+      <input type="checkbox" name = 'History' value = '1'>History<br>
+      <input type="hidden" name="History" value = "0">
+      <input type="checkbox" name = 'Horror' value = '1'>Horror<br>
+      <input type="hidden" name="Horror" value = "0">
+      <input type="checkbox" name = 'Music' value = '1'>Music<br>
+      <input type="hidden" name="Music" value = "0">
+      <input type="checkbox" name = 'Musical' value = '1'>Musical<br>
+      <input type="hidden" name="Musical" value = "0">
+      <input type="checkbox" name = 'Mystery' value = '1'>Mystery<br>
+      <input type="hidden" name="Mystery" value = "0">
+      <input type="checkbox" name = 'News' value = '1'>News<br>
+      <input type="hidden" name="News" value = "0">
+      <input type="checkbox" name = 'Romance' value = '1'>Romance<br>
+      <input type="hidden" name="Romance" value = "0">
+      <input type="checkbox" name = 'Sci-Fi' value = '1'>Sci-Fi<br>
+      <input type="hidden" name="Sci-Fi" value = "0">
+      <input type="checkbox" name = 'Short' value = '1'>Short<br>
+      <input type="hidden" name="Short" value = "0">
+      <input type="checkbox" name = "Sport" value = '1'>Sport<br>
+      <input type="hidden" name="Sport" value = "0">
+      <input type="checkbox" name = 'Thriller' value = '1'>Thriller<br>
+      <input type="hidden" name="Thriller" value = "0">
+      <input type="checkbox" name = 'War' value = '1'>War<br>
+      <input type="hidden" name="War" value = "0">
+      <input type="checkbox" name = 'Western' value = '1'>Western<br>
+      <input type="hidden" name="Western" value = "0"> 
       <input type="submit" value="Submit">
    </form>
 
