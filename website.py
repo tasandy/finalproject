@@ -30,7 +30,8 @@ def hello_world():
 
 @app.route('/rating/<movie>')
 def rating(movie):
-    return '%s' % movie
+    return render_template('score_page.html', movie = movie)
+
 
 @app.route('/submission', methods=['POST'])
 def login():
@@ -51,7 +52,7 @@ def login():
         movie_rating_index=predict_movie_rating(user_input, moviedata)
         dic = {0:"Not Recommended", 1:"Hmm..I'd consider it", 2:"Go Watch It!"}
         movie_rating = [dic[n] if n in dic.keys() else n for n in movie_rating_index]
-        result = movie_rating[0]
+        #result = movie_rating[0]
         #movie recommendation
         genre_selected_by_user = []
         for i in range(23):
@@ -59,8 +60,7 @@ def login():
                 genre_selected_by_user.append(genrelist[i])
 
         movie_recommendation = recommend_movie(genre_selected_by_user, moviedata_recommend)
-        print movie_recommendation
-
+        result = movie_rating[0] +  ' | ' + 'Based off your genre preferences, we recommend the following movies: ' + movie_recommendation[0] + ", " + movie_recommendation[1] + ", " + movie_recommendation[2]
         return redirect(url_for('rating', movie = result))
     else:
         error = 'Error: Please fill out all fields'
