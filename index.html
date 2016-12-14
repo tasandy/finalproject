@@ -32,6 +32,8 @@
         <li><a href="#Background and Context">Background and Context</a></li>
         <li><a href="#Implementation">Implementation</a></li>
         <li><a href="#Project Evolution">Project Evolution</a></li>
+        <li><a href="#Results">Results</a></li>
+        <li><a href="#Extensions">Extensions</a></li>
     </ul>
   
     <div class="tab-content">
@@ -89,7 +91,19 @@
            <p>In addition, the predictor ‘genre’ was stored in concatenated form - multiple genres associated with a movie were stored in one cell. A few different ways we thought about proceeding were randomly picking one of the genres listed, selecting only the first one, or creating dummy variables for all the genres. After an exploration of Excel functions, we were able to convert a genre that looks like “[Action | Drama | Thriller]” into dummy variables.</p>
            <p>Lastly, we built our predictive model on the movies that were produced in year 2000 or after as well as in the English language to make the results more relevant to our interests. While we were coding the dataset, we came across a lot of unfamiliarities with the libraries used. For example, the concept of using a data frame and numpy array was new to us; thus when trying to simply prepare the data or building the model, we ran into numerous errors with the input type.</p>
            <p>Upon building a successful predictive model, we shifted our focus to building our software to recommend whether or not to view a movie given user inputs. Using flask and html template, we created a web page where users can input information on the movie they are interested in finding out the scores. After we retrieved the user input, we called in two functions to predict how good the movie is and recommend top 3 movies. </p>
-
+        </div>
+        <div id="Results" class="tab">
+           <h1>
+           <a id="Results" class="anchor" href="#Results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results</h1>
+        <div id="Extensions" class="tab">
+           <h1>
+           <a id="Extensions" class="anchor" href="#Extensions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extensions</h1>
+           <li>Build the statistical models from scratch, without using scikit-learn</li>
+           <li>Show how the predictions change using data visualization as a user changes predictors</li>
+           <li>Extend code to be usable with other datasets</li>
+           <li>Compare the significant predictors from different set of years (what’s more important in pre-2000 versus post-2000?)</li>
+        </div>
+      
     </div>
       
 
