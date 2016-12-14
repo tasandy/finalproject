@@ -81,12 +81,15 @@
            <h1><u>recommend_movie():</u></h1>
            <p><img src="http://i.imgur.com/h9jl39M.png" alt=recommend_movie></p>
            <a href="#top">TOP OF PAGE</a>
-           
         </div>
         <div id="Project Eveloution" class="tab">
            <h1>
            <a id="Project Evolution" class="anchor" href="#Project Evolution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Evolution</h1>
-           
+           <p>Initially when we started this project, we were most concerned about how to clean and filter the data so that we can even begin to build a predictive model. Our dataset had 16 columns of 28 with missing values, with some columns as many as 500 missing values. We weighed the options: to delete all the records with missing values which would eliminate a lot of data, or to fill in the missing values with an average of the column which meant skewing the data - especially if the range is large. We proceeded with a combination of both. </p>
+           <p>In addition, the predictor ‘genre’ was stored in concatenated form - multiple genres associated with a movie were stored in one cell. A few different ways we thought about proceeding were randomly picking one of the genres listed, selecting only the first one, or creating dummy variables for all the genres. After an exploration of Excel functions, we were able to convert a genre that looks like “[Action | Drama | Thriller]” into dummy variables.</p>
+           <p>Lastly, we built our predictive model on the movies that were produced in year 2000 or after as well as in the English language to make the results more relevant to our interests. While we were coding the dataset, we came across a lot of unfamiliarities with the libraries used. For example, the concept of using a data frame and numpy array was new to us; thus when trying to simply prepare the data or building the model, we ran into numerous errors with the input type.</p>
+           <p>Upon building a successful predictive model, we shifted our focus to building our software to recommend whether or not to view a movie given user inputs. Using flask and html template, we created a web page where users can input information on the movie they are interested in finding out the scores. After we retrieved the user input, we called in two functions to predict how good the movie is and recommend top 3 movies. </p>
+
     </div>
       
 
