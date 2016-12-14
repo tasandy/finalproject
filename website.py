@@ -64,7 +64,6 @@ def login():
         return redirect(url_for('rating', movie = result))
     else:
         error = 'Error: Please fill out all fields'
-    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
