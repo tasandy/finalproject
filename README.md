@@ -22,11 +22,22 @@ flask
 To install all these packages, run this line of code in your terminal:
 
 sudo apt-get install matplotlib, numpy, pandas, scikit-learn, flask
+To run the software:
+
+1. Clone or download the repo
+
+2. Go to the folder
+
+$ cd .../finalproject
+
+3. Run the website.py file from the terminal and click "Let's Predict," which is at the top of the website
+
+$ python website.py
 
 ### ***Usage***
 
-The main files that you will need from the repository are movie_metadata.csv, clean_data.py, website.py, and final_model.py.
-First, you will want to run website.py. Be sure to replace file_n with the location of your movie_metadata.csv file if needed. After running the code in final_model.py, you should receive an output of 'bad','average', or 'good'. 
+The main files that you will need from the repository are movie_metadata.csv, clean_data.py, website.py, final_model.py, and our flask templates.
+First, you will want to run website.py. Be sure to replace file_n with the location of your movie_metadata.csv file if needed. After running the code, you should receive an output of 'bad','average', or 'good'. 
 
 ###***MIT License***
 
